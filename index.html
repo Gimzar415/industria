@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebird.ai Global Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script defer src="data.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-logo" aria-label="Firebird logo placeholder">F</div>
+        <div>
+          <p class="brand-eyebrow">Firebird.ai</p>
+          <h1>Global Dashboard</h1>
+        </div>
+      </div>
+      <p class="subtitle">
+        NVIDIA Blackwell economics, neocloud pricing curves, and energy-supply market intelligence.
+      </p>
+      <div class="meta-row">
+        <span>Price sheet as of: <strong id="sheetAsOf"></strong></span>
+        <span>Methodology: <strong id="methodologyVersion"></strong></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel controls">
+        <h2>Market Filters</h2>
+        <div class="grid-controls">
+          <label>
+            GPU Generation
+            <select id="gpuFilter"></select>
+          </label>
+          <label>
+            Contract Type
+            <select id="contractFilter">
+              <option value="all">All</option>
+              <option value="on-demand">On-demand</option>
+              <option value="monthly">Monthly contract</option>
+              <option value="yearly">Yearly contract</option>
+            </select>
+          </label>
+          <label>
+            Region
+            <select id="regionFilter"></select>
+          </label>
+          <label>
+            Forecast Scenario
+            <select id="forecastScenarioFilter"></select>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Current Price Benchmark ($/GPU-hour)</h2>
+        <canvas id="priceComparisonChart"></canvas>
+      </section>
+
+      <section class="panel two-col">
+        <div>
+          <h2>Contract Curve by Provider</h2>
+          <canvas id="contractCurveChart"></canvas>
+        </div>
+        <div>
+          <h2 id="trendChartTitle">Quarterly Price Outlook Tracker</h2>
+          <p class="muted" id="trendScenarioBlurb"></p>
+          <canvas id="declineChart"></canvas>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Pricing Source Tracker</h2>
+        <p class="muted">Use this section to reconcile revised provider price sheets (e.g., updated Nebius listings) and quote-based adjustments.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Provider</th>
+                <th>GPU</th>
+                <th>Contract</th>
+                <th>$/GPU-hr</th>
+                <th>Source type</th>
+                <th>Source link</th>
+                <th>As-of</th>
+              </tr>
+            </thead>
+            <tbody id="sourceRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Energy Exporter Advantage Map</h2>
+        <p class="muted">
+          Country color shows estimated power export surplus (MW). Bubble size reflects available exportable power.
+          Hover for average industrial power cost ($/MWh).
+        </p>
+        <div id="energyMap"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Operator Signals You Should Track</h2>
+        <div class="kpi-grid" id="kpiCards"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Data Notes</h2>
+        <ul>
+          <li>
+            Scenario control supports both easing and memory-shortage cases, including an upside path where 2026 rates rise by ~40%.
+          </li>
+          <li>
+            Keep at least three source classes per provider: published list, quote sample, and contracted realized rate.
+          </li>
+          <li>
+            Refresh this file weekly or load from a backend table keyed by provider, sku, contract, and as-of date.
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
