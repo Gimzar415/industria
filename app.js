@@ -1,72 +1,128 @@
-let digestItems = [];
+let priceComparisonChart;
+let contractCurveChart;
+let declineChart;
 
-const root = document.getElementById('digestRoot');
-const fallback = document.getElementById('fallback');
-const dateEl = document.getElementById('displayDate');
-const updatedEl = document.getElementById('generatedAt');
-const sourceFilter = document.getElementById('sourceFilter');
-const tagFilter = document.getElementById('tagFilter');
-const searchBox = document.getElementById('searchBox');
+const gpuFilter = document.getElementById('gpuFilter');
+const contractFilter = document.getElementById('contractFilter');
+const regionFilter = document.getElementById('regionFilter');
 
-function formatDate(iso) {
-  const d = new Date(iso);
-  return Number.isNaN(d.getTime()) ? iso : d.toLocaleString();
+function uniqueValues(data, key) {
+  return [...new Set(data.map((item) => item[key]))];
 }
 
-function cardTemplate(item) {
-  const tags = item.tags.map((tag) => `<span class="tag">${tag}</span>`).join('');
-  return `<article class="story-card">
-    <div class="story-top">
-      <span class="rank">#${item.rank}</span>
-      <a class="headline" target="_blank" rel="noreferrer" href="${item.url}">${item.headline}</a>
-    </div>
-    <p class="meta">${item.source} · ${formatDate(item.published_at)} · score ${item.score.toFixed(1)}</p>
-    <p class="summary">${item.summary}</p>
-    <div class="tags">${tags}</div>
-    ${item.why_it_matters ? `<details><summary>Why it matters</summary><p>${item.why_it_matters}</p></details>` : ''}
-  </article>`;
+function populateFilters() {
+  const gpus = uniqueValues(pricingData, 'gpu');
+  const regions = uniqueValues(pricingData, 'region');
+  gpuFilter.innerHTML = gpus.map((gpu) => `<option value="${gpu}">${gpu}</option>`).join('');
+  gpuFilter.value = gpus.includes('B200') ? 'B200' : gpus[0];
+  regionFilter.innerHTML = '<option value="all">All regions</option>' + regions.map((region) => `<option value="${region}">${region}</option>`).join('');
 }
 
-function repopulateFilters(items) {
-  const sources = [...new Set(items.map((x) => x.source))].sort();
-  const tags = [...new Set(items.flatMap((x) => x.tags))].sort();
-  sourceFilter.innerHTML = '<option value="all">All sources</option>' + sources.map((s) => `<option value="${s}">${s}</option>`).join('');
-  tagFilter.innerHTML = '<option value="all">All tags</option>' + tags.map((t) => `<option value="${t}">${t}</option>`).join('');
-}
-
-function filteredItems() {
-  const source = sourceFilter.value;
-  const tag = tagFilter.value;
-  const q = searchBox.value.toLowerCase().trim();
-  return digestItems.filter((item) => {
-    const sourceMatch = source === 'all' || item.source === source;
-    const tagMatch = tag === 'all' || item.tags.includes(tag);
-    const text = `${item.headline} ${item.summary} ${item.why_it_matters || ''}`.toLowerCase();
-    const searchMatch = !q || text.includes(q);
-    return sourceMatch && tagMatch && searchMatch;
+function filteredPricing() {
+  return pricingData.filter((row) => {
+    const matchesGpu = row.gpu === gpuFilter.value;
+    const matchesContract = contractFilter.value === 'all' || row.contract === contractFilter.value;
+    const matchesRegion = regionFilter.value === 'all' || row.region === regionFilter.value;
+    return matchesGpu && matchesContract && matchesRegion;
   });
 }
 
-function render() {
-  const items = filteredItems().sort((a, b) => a.rank - b.rank);
-  root.innerHTML = items.map(cardTemplate).join('');
+function renderPriceComparison() {
+  const data = filteredPricing();
+  if (priceComparisonChart) priceComparisonChart.destroy();
+  priceComparisonChart = new Chart(document.getElementById('priceComparisonChart'), {
+    type: 'bar',
+    data: { labels: data.map((d) => `${d.provider} · ${d.contract}`), datasets: [{ label: '$/GPU-hour', data: data.map((d) => d.hourly), backgroundColor: '#54b2ff' }] },
+    options: { responsive: true, plugins: { legend: { labels: { color: '#eaf0ff' } } }, scales: { x: { ticks: { color: '#c7d3f7' } }, y: { ticks: { color: '#c7d3f7' } } } }
+  });
 }
 
-async function init() {
+function renderContractCurve() {
+  const data = filteredPricing();
+  const providers = uniqueValues(data, 'provider');
+  const contracts = ['on-demand', 'monthly', 'yearly'];
+  const datasets = providers.map((provider, idx) => ({
+    label: provider,
+    data: contracts.map((contract) => (data.find((row) => row.provider === provider && row.contract === contract) || {}).hourly ?? null),
+    borderColor: ['#76f8cc', '#54b2ff', '#f7c873', '#e983ff', '#ff6e6e'][idx % 5],
+    backgroundColor: 'transparent',
+    tension: 0.2
+  }));
+  if (contractCurveChart) contractCurveChart.destroy();
+  contractCurveChart = new Chart(document.getElementById('contractCurveChart'), {
+    type: 'line',
+    data: { labels: contracts, datasets },
+    options: { responsive: true, plugins: { legend: { labels: { color: '#eaf0ff' } } }, scales: { x: { ticks: { color: '#c7d3f7' } }, y: { ticks: { color: '#c7d3f7' } } } }
+  });
+}
+
+function renderOutlookChart() {
+  const selectedGpu = gpuFilter.value || 'B200';
+  const series = quarterlyOutlookData[selectedGpu] || quarterlyOutlookData.B200;
+  if (declineChart) declineChart.destroy();
+  declineChart = new Chart(document.getElementById('declineChart'), {
+    type: 'line',
+    data: { labels: series.labels, datasets: [{ label: `${selectedGpu} market outlook`, data: series.rates, borderColor: '#76f8cc', backgroundColor: '#76f8cc33', fill: true, tension: 0.25 }] },
+    options: { responsive: true, plugins: { legend: { labels: { color: '#eaf0ff' } } }, scales: { x: { ticks: { color: '#c7d3f7' } }, y: { ticks: { color: '#c7d3f7' } } } }
+  });
+}
+
+function renderEnergyMap() {
+  const exporterChoropleth = {
+    type: 'choropleth', locations: energyCountryData.map((c) => c.iso3), z: energyCountryData.map((c) => c.surplusMw),
+    text: energyCountryData.map((c) => `${c.country}<br>Surplus: ${c.surplusMw.toLocaleString()} MW<br>Avg cost: $${c.costMwh}/MWh`),
+    colorscale: 'Blues', marker: { line: { color: '#12213f', width: 0.8 } },
+    colorbar: { title: 'MW surplus', len: 0.55, thickness: 10, x: 1.02, y: 0.5 }
+  };
+  const hydroLogos = { type: 'scattergeo', mode: 'text', lon: energyCountryData.filter((c) => c.hydro).map((c) => c.lon), lat: energyCountryData.filter((c) => c.hydro).map((c) => c.lat), text: energyCountryData.filter((c) => c.hydro).map(() => '💧'), textfont: { size: 12 }, hovertext: energyCountryData.filter((c) => c.hydro).map((c) => `${c.country} · Hydro`), hoverinfo: 'text', name: 'Hydro' };
+  const thermalLogos = { type: 'scattergeo', mode: 'text', lon: energyCountryData.filter((c) => c.thermal).map((c) => c.lon), lat: energyCountryData.filter((c) => c.thermal).map((c) => c.lat), text: energyCountryData.filter((c) => c.thermal).map(() => '🔥'), textfont: { size: 12 }, hovertext: energyCountryData.filter((c) => c.thermal).map((c) => `${c.country} · Thermal`), hoverinfo: 'text', name: 'Thermal' };
+  const nuclearLogos = { type: 'scattergeo', mode: 'text', lon: nuclearPowerCountries.map((c) => c.lon), lat: nuclearPowerCountries.map((c) => c.lat), text: nuclearPowerCountries.map(() => '☢️'), textfont: { size: 10 }, hovertext: nuclearPowerCountries.map((c) => `${c.country} · Nuclear`), hoverinfo: 'text', name: 'Nuclear' };
+
+  Plotly.newPlot('energyMap', [exporterChoropleth, hydroLogos, thermalLogos, nuclearLogos], {
+    paper_bgcolor: '#111829', plot_bgcolor: '#111829', font: { color: '#eaf0ff' }, margin: { l: 0, r: 30, t: 6, b: 0 },
+    geo: { projection: { type: 'natural earth' }, bgcolor: '#111829', showframe: false, showcoastlines: true, coastlinecolor: '#41547f' }
+  }, { responsive: true, displayModeBar: false });
+}
+
+function renderKpis() {
+  document.getElementById('kpiCards').innerHTML = strategicKpis.map((kpi) => `<article class="kpi-card"><h3>${kpi.title}</h3><p>${kpi.description}</p></article>`).join('');
+}
+
+function renderSourceTable() {
+  const rows = filteredPricing().sort((a, b) => a.provider.localeCompare(b.provider)).map((row) => `<tr><td>${row.provider}</td><td>${row.gpu}</td><td>${row.contract}</td><td>$${row.hourly.toFixed(2)}</td><td>${row.sourceType}</td><td><a href="${row.sourceUrl}" target="_blank" rel="noreferrer">source</a></td><td>${row.asOf}</td></tr>`).join('');
+  document.getElementById('sourceRows').innerHTML = rows || '<tr><td colspan="7">No records for current filters.</td></tr>';
+}
+
+function renderMetadata() {
+  document.getElementById('sheetAsOf').textContent = dashboardMeta.priceSheetAsOf;
+  document.getElementById('methodologyVersion').textContent = dashboardMeta.methodologyVersion;
+}
+
+async function renderBottomHeadlines() {
+  const root = document.getElementById('digestHeadlines');
   try {
-    const data = await fetch('data/digest.json', { cache: 'no-store' }).then((r) => r.json());
-    if (!data?.items || !Array.isArray(data.items)) throw new Error('Invalid digest.json');
-    digestItems = data.items.slice(0, 20);
-    dateEl.textContent = `— ${data.display_date || ''}`;
-    updatedEl.textContent = formatDate(data.generated_at || '');
-    repopulateFilters(digestItems);
-    render();
-  } catch (err) {
-    console.error(err);
-    fallback.hidden = false;
-    root.innerHTML = '';
+    const digest = await fetch('data/digest.json', { cache: 'no-store' }).then((r) => r.json());
+    const items = (digest.items || []).slice(0, 20);
+    root.innerHTML = items
+      .map((item) => `<li><a href="${item.url}" target="_blank" rel="noreferrer">${item.headline}</a> <span class="news-source">(${item.source})</span></li>`)
+      .join('');
+  } catch {
+    root.innerHTML = '<li>Headlines unavailable right now.</li>';
   }
 }
 
-[sourceFilter, tagFilter, searchBox].forEach((el) => el.addEventListener('input', render));
-init();
+function refreshCharts() {
+  renderPriceComparison();
+  renderContractCurve();
+  renderOutlookChart();
+  renderSourceTable();
+}
+
+[gpuFilter, contractFilter, regionFilter].forEach((el) => el.addEventListener('change', refreshCharts));
+
+populateFilters();
+renderMetadata();
+renderKpis();
+refreshCharts();
+renderEnergyMap();
+renderBottomHeadlines();
