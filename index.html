@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inudstria x Tokenomics Global Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script defer src="data.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-logo" aria-label="dashboard logo">I×T</div>
+        <div>
+          <h1>Inudstria x Tokenomics Global Dashboard</h1>
+        </div>
+      </div>
+      <p class="subtitle">NVIDIA Blackwell economics, neocloud pricing curves, and energy system signals.</p>
+      <div class="meta-row">
+        <span>Price sheet as of: <strong id="sheetAsOf"></strong></span>
+        <span>Methodology: <strong id="methodologyVersion"></strong></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel controls">
+        <h2>GPU Market Filters</h2>
+        <div class="grid-controls">
+          <label>GPU Generation <select id="gpuFilter"></select></label>
+          <label>Contract Type
+            <select id="contractFilter">
+              <option value="all">All</option>
+              <option value="on-demand">On-demand</option>
+              <option value="monthly">Monthly contract</option>
+              <option value="yearly">Yearly contract</option>
+            </select>
+          </label>
+          <label>Region <select id="regionFilter"></select></label>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Current Price Benchmark ($/GPU-hour)</h2>
+        <canvas id="priceComparisonChart"></canvas>
+      </section>
+
+      <section class="panel two-col">
+        <div>
+          <h2>Contract Curve by Provider</h2>
+          <canvas id="contractCurveChart"></canvas>
+        </div>
+        <div>
+          <h2>Quarterly Price Outlook Tracker</h2>
+          <p class="muted">Outlook reflects current constrained-memory assumptions for 2026 pricing.</p>
+          <canvas id="declineChart"></canvas>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Energy Systems Map</h2>
+        <p class="muted">Country color shows estimated power surplus (MW). Logos: 💧 hydro, 🔥 thermal, ☢️ nuclear.</p>
+        <div id="energyMap"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Pricing Source Tracker</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Provider</th><th>GPU</th><th>Contract</th><th>$/GPU-hr</th><th>Source type</th><th>Source link</th><th>As-of</th></tr>
+            </thead>
+            <tbody id="sourceRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Operator Signals You Should Track</h2>
+        <div class="kpi-grid" id="kpiCards"></div>
+      </section>
+
+      <section class="panel" id="newsBottom">
+        <h2>AI Daily Digest Headlines (Top 20)</h2>
+        <ol id="digestHeadlines" class="headline-list"></ol>
+      </section>
+    </main>
+  </body>
+</html>
