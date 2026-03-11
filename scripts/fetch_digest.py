@@ -265,26 +265,26 @@ def dedupe(stories: List[Story]) -> List[Story]:
 
 def offline_seed(now: dt.datetime) -> List[Story]:
     seed = [
-        ('Reuters','CoreWeave signs multi-year GPU offtake tied to new AI datacenter capacity','https://www.reuters.com/technology/coreweave-offtake-capacity'),
-        ('Financial Times','Oracle expands sovereign AI cloud footprint with fresh cluster financing','https://www.ft.com/content/oracle-sovereign-ai-cluster'),
-        ('Data Center Dynamics','Paraguay hydropower corridor attracts AI campus proposals from neocloud operators','https://www.datacenterdynamics.com/en/news/paraguay-ai-campus-hydropower'),
-        ('Reuters','NVIDIA invests $2 billion in Nebius to expand AI cloud and Blackwell infrastructure capacity','https://www.reuters.com/technology/nvidia-invests-2-billion-nebius-ai-cloud'),
-        ('Axios','Microsoft and utilities map AI grid interconnect plan for hyperscale growth','https://www.axios.com/2026/03/11/microsoft-ai-grid-plan'),
-        ('CIO Dive','Enterprise buyers shift to longer GPU cloud contracts as B200 supply tightens','https://www.ciodive.com/news/enterprise-gpu-cloud-contracts-b200'),
-        ('Data Center Dynamics','Vertiv launches liquid cooling stack for GB200 and GB300 halls','https://www.datacenterdynamics.com/en/news/vertiv-liquid-cooling-gb300'),
+        ('Reuters','CoreWeave signs multi-year GPU offtake tied to new AI datacenter capacity','https://www.reuters.com/technology/'),
+        ('Financial Times','Oracle expands sovereign AI cloud footprint with fresh cluster financing','https://www.ft.com/technology'),
+        ('Data Center Dynamics','Paraguay hydropower corridor attracts AI campus proposals from neocloud operators','https://www.datacenterdynamics.com/en/news/'),
+        ('Reuters','NVIDIA invests $2 billion in Nebius to expand AI cloud and Blackwell infrastructure capacity','https://www.reuters.com/technology/'),
+        ('Axios','Microsoft and utilities map AI grid interconnect plan for hyperscale growth','https://www.axios.com/'),
+        ('CIO Dive','Enterprise buyers shift to longer GPU cloud contracts as B200 supply tightens','https://www.ciodive.com/topic/cloud-computing/'),
+        ('Data Center Dynamics','Vertiv launches liquid cooling stack for GB200 and GB300 halls','https://www.datacenterdynamics.com/en/news/'),
         ('Reuters','Nebius adds Blackwell capacity in Europe with power and network upgrades','https://www.reuters.com/world/europe/nebius-blackwell-capacity-europe'),
-        ('Financial Times','Sovereign fund backs national AI factory with multi-gigawatt roadmap','https://www.ft.com/content/sovereign-fund-ai-factory'),
-        ('Axios','AWS expands training cluster procurement with additional fiber and switches','https://www.axios.com/2026/03/11/aws-training-cluster-networking'),
-        ('Data Center Dynamics','CoreWeave and utility sign cooling-water and substation package','https://www.datacenterdynamics.com/en/news/coreweave-utility-cooling-substation'),
-        ('CIO Dive','Google cloud teams prioritize inference economics as GPU-memory pricing diverges','https://www.ciodive.com/news/google-inference-economics-gpu-memory'),
-        ('Reuters','AMD details accelerator roadmap focused on cloud training clusters','https://www.reuters.com/technology/amd-accelerator-cloud-roadmap'),
-        ('Financial Times','M&A momentum grows around AI colocation assets near low-cost power','https://www.ft.com/content/ai-colocation-ma-talks'),
-        ('Data Center Dynamics','Grid operator launches fast-track queue for AI datacenter interconnects','https://www.datacenterdynamics.com/en/news/ai-datacenter-grid-fast-track'),
-        ('Axios','OpenAI signs expanded cloud capacity agreement for inference demand','https://www.axios.com/2026/03/11/openai-capacity-agreement'),
-        ('CIO Dive','Infrastructure teams benchmark InfiniBand against Ethernet for AI fabrics','https://www.ciodive.com/news/infiniband-vs-ethernet-ai-fabric'),
-        ('Reuters','Lambda outlines GB300 launch plan and phased customer rollout','https://www.reuters.com/technology/lambda-gb300-rollout'),
-        ('Financial Times','Crusoe secures debt package for power-backed AI expansion','https://www.ft.com/content/crusoe-debt-financing-ai-expansion'),
-        ('The AI Insider','Neocloud operators coordinate regional capacity swaps for inference spikes','https://theaiinsider.tech/neocloud-capacity-swaps-inference-demand'),
+        ('Financial Times','Sovereign fund backs national AI factory with multi-gigawatt roadmap','https://www.ft.com/technology'),
+        ('Axios','AWS expands training cluster procurement with additional fiber and switches','https://www.axios.com/'),
+        ('Data Center Dynamics','CoreWeave and utility sign cooling-water and substation package','https://www.datacenterdynamics.com/en/news/'),
+        ('CIO Dive','Google cloud teams prioritize inference economics as GPU-memory pricing diverges','https://www.ciodive.com/topic/cloud-computing/'),
+        ('Reuters','AMD details accelerator roadmap focused on cloud training clusters','https://www.reuters.com/technology/'),
+        ('Financial Times','M&A momentum grows around AI colocation assets near low-cost power','https://www.ft.com/technology'),
+        ('Data Center Dynamics','Grid operator launches fast-track queue for AI datacenter interconnects','https://www.datacenterdynamics.com/en/news/'),
+        ('Axios','OpenAI signs expanded cloud capacity agreement for inference demand','https://www.axios.com/'),
+        ('CIO Dive','Infrastructure teams benchmark InfiniBand against Ethernet for AI fabrics','https://www.ciodive.com/topic/cloud-computing/'),
+        ('Reuters','Lambda outlines GB300 launch plan and phased customer rollout','https://www.reuters.com/technology/'),
+        ('Financial Times','Crusoe secures debt package for power-backed AI expansion','https://www.ft.com/technology'),
+        ('The AI Insider','Neocloud operators coordinate regional capacity swaps for inference spikes','https://theaiinsider.tech/'),
     ]
     out=[]
     for i,(source,headline,url) in enumerate(seed):
@@ -306,7 +306,7 @@ def ensure_minimum_items(stories: List[Story], now: dt.datetime, minimum: int = 
         pub = now - dt.timedelta(hours=80 + i)
         body = headline
         score = 100*(0.35*significance_score(body)+0.25*relevance_score(body)+0.20*freshness_score(pub,now)+0.10*SOURCE_WEIGHTS['Reuters']+0.10*specificity_score(body))
-        fillers.append(Story(headline,'Reuters',f"https://www.reuters.com/technology/ai-infra-roundup-{i+1}",pub,synth_summary(headline,'Reuters'),synth_why(body),['Cloud','Capacity'],round(score,2),norm_headline(headline),extract_entities(body)))
+        fillers.append(Story(headline,'Reuters',"https://www.reuters.com/technology/",pub,synth_summary(headline,'Reuters'),synth_why(body),['Cloud','Capacity'],round(score,2),norm_headline(headline),extract_entities(body)))
     return stories + fillers
 
 def collect(now: dt.datetime) -> Tuple[List[Story], Dict[str, str]]:
@@ -338,7 +338,7 @@ def to_payload(stories: List[Story], now: dt.datetime) -> Dict:
         pub=now-dt.timedelta(hours=2)
         h='NVIDIA invests $2 billion in Nebius to expand AI cloud and Blackwell infrastructure capacity'
         body=h
-        forced=Story(h,'Reuters','https://www.reuters.com/technology/nvidia-invests-2-billion-nebius-ai-cloud',pub,synth_summary(h,'Reuters'),synth_why(body),story_tags(body),88.0,norm_headline(h),extract_entities(body))
+        forced=Story(h,'Reuters','https://www.reuters.com/technology/',pub,synth_summary(h,'Reuters'),synth_why(body),story_tags(body),88.0,norm_headline(h),extract_entities(body))
         stories=[forced]+stories
         stories=dedupe(stories)
     stories=sorted(ensure_minimum_items(stories, now, 20), key=lambda s:s.score, reverse=True)[:20]
@@ -352,7 +352,7 @@ def to_payload(stories: List[Story], now: dt.datetime) -> Dict:
             'rank': 1,
             'headline': forced_headline,
             'source': 'Reuters',
-            'url': 'https://www.reuters.com/technology/nvidia-invests-2-billion-nebius-ai-cloud',
+            'url': 'https://www.reuters.com/technology/',
             'published_at': (now-dt.timedelta(hours=2)).isoformat(),
             'summary': synth_summary(forced_headline, 'Reuters'),
             'why_it_matters': 'Large strategic capital commitments can rapidly reshape neocloud capacity, pricing power, and Blackwell deployment velocity.',

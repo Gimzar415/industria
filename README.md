@@ -43,3 +43,6 @@ Workflow: `.github/workflows/daily-digest.yml`
 2. Settings → Pages.
 3. Source: Deploy from branch.
 4. Branch: `main`, folder `/ (root)`.
+
+
+> Note: when source endpoints are unavailable during refresh, fallback headlines are published with stable source section links (not fabricated article slugs) to avoid broken 404 links.
