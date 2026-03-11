@@ -102,13 +102,23 @@ async function renderBottomHeadlines() {
   const root = document.getElementById('digestHeadlines');
   try {
     const digest = await fetch('data/digest.json', { cache: 'no-store' }).then((r) => r.json());
-    const items = (digest.items || []).slice(0, 20);
+    const items = (digest.items || []).slice(0, 10);
     root.innerHTML = items
       .map((item) => `<li><a href="${item.url}" target="_blank" rel="noreferrer">${item.headline}</a> <span class="news-source">(${item.source})</span></li>`)
       .join('');
   } catch {
     root.innerHTML = '<li>Headlines unavailable right now.</li>';
   }
+}
+
+
+
+function renderNeocloudTable() {
+  const root = document.getElementById('neocloudRows');
+  if (!root || !Array.isArray(neocloudTracker)) return;
+  root.innerHTML = neocloudTracker
+    .map((n) => `<tr><td>${n.name}</td><td><a href="${n.url}" target="_blank" rel="noreferrer">site</a></td><td>${n.capitalRaised}</td><td>${n.currentMw}</td><td>${n.plannedMw}</td><td>${n.asOf}</td></tr>`)
+    .join('');
 }
 
 function refreshCharts() {
@@ -126,3 +136,4 @@ renderKpis();
 refreshCharts();
 renderEnergyMap();
 renderBottomHeadlines();
+renderNeocloudTable();

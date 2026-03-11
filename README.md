@@ -1,25 +1,25 @@
 # Inudstria x Tokenomics Global Dashboard
 
-This project keeps your original GPU infrastructure dashboard and adds a lightweight **AI Daily Digest headlines strip at the very bottom**.
+This project keeps the GPU infrastructure dashboard and appends AI news + neocloud tracking at the bottom.
 
-## What is included
+## What changed
 
-- Main dashboard (pricing filters, benchmark bar chart, provider contract curves, quarterly outlook, energy map, pricing source table, KPI cards).
-- Bottom news module: **20 one-line hyperlinked headlines** from `data/digest.json`.
-- Daily digest generator: `scripts/fetch_digest.py`.
-- Daily GitHub Action refresh: `.github/workflows/daily-digest.yml`.
+- Bottom news list now shows **Top 10** headlines only (one line each, hyperlinked).
+- Digest generation now keeps only **actual article-style links** from supported sources and rejects malformed/double URLs.
+- If source fetch fails, the generator preserves the previous working digest instead of publishing broken fallback links.
+- Added bottom neocloud table with:
+  - name
+  - link
+  - capital raised
+  - current MW
+  - planned MW additions
+  - as-of date
 
-## Key behavior
+## News refresh workflow
 
-- The dashboard remains primary content.
-- News is appended at the bottom only (not at top).
-- Headlines are deduplicated and capped at 20.
-- If source fetching fails, the generator uses deterministic fallback headlines.
-
-## Notable headline policy
-
-The digest now force-includes this major event if missing from scraped candidates:
-- **NVIDIA invests $2 billion in Nebius to expand AI cloud and Blackwell infrastructure capacity**.
+Workflow: `.github/workflows/daily-digest.yml`
+- scheduled daily at **5:00 AM EST** (`10:00 UTC` cron)
+- manual `workflow_dispatch`
 
 ## Local run
 
@@ -30,12 +30,15 @@ python3 -m http.server 4173 --bind 0.0.0.0
 
 Open `http://localhost:4173`.
 
-## Daily refresh in GitHub
+## Source focus
 
-Workflow: `.github/workflows/daily-digest.yml`
-- scheduled daily
-- manual `workflow_dispatch`
-- commits updated `data/digest.json` when changed
+Digest ingestion prefers these sources via RSS where available:
+- Reuters
+- Financial Times
+- Data Center Dynamics
+- Axios
+- CIO Dive
+- The AI Insider
 
 ## GitHub Pages deploy
 
@@ -43,6 +46,3 @@ Workflow: `.github/workflows/daily-digest.yml`
 2. Settings → Pages.
 3. Source: Deploy from branch.
 4. Branch: `main`, folder `/ (root)`.
-
-
-> Note: when source endpoints are unavailable during refresh, fallback headlines are published with stable source section links (not fabricated article slugs) to avoid broken 404 links.

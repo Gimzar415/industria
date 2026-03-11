@@ -112,3 +112,14 @@ const strategicKpis = [
   { title: 'Price Elasticity by Segment', description: 'Estimate demand shift when lowering on-demand price by 5–10% in startup vs enterprise cohorts.' },
   { title: 'Quarterly Depreciation Coverage', description: 'Compare realized revenue per GPU-hour versus depreciation + cost of capital runway.' }
 ];
+
+const neocloudTracker = [
+  { name: 'CoreWeave', url: 'https://www.coreweave.com', capitalRaised: '$12.2B+', currentMw: '360', plannedMw: '+750', asOf: '2026-03' },
+  { name: 'Crusoe', url: 'https://www.crusoe.ai', capitalRaised: '$1.6B+', currentMw: '120', plannedMw: '+300', asOf: '2026-03' },
+  { name: 'Firmus', url: 'https://www.firmus.com', capitalRaised: 'Undisclosed', currentMw: '40', plannedMw: '+110', asOf: '2026-03' },
+  { name: 'Foxconn', url: 'https://www.foxconn.com', capitalRaised: 'Corporate balance sheet', currentMw: '95', plannedMw: '+220', asOf: '2026-03' },
+  { name: 'Lambda', url: 'https://lambdalabs.com', capitalRaised: '$900M+', currentMw: '140', plannedMw: '+280', asOf: '2026-03' },
+  { name: 'Nebius (Nebius AI)', url: 'https://nebius.com', capitalRaised: '$1.4B+', currentMw: '85', plannedMw: '+260', asOf: '2026-03' },
+  { name: 'Nscale', url: 'https://www.nscale.com', capitalRaised: '$250M+', currentMw: '60', plannedMw: '+180', asOf: '2026-03' },
+  { name: 'Together AI', url: 'https://www.together.ai', capitalRaised: '$530M+', currentMw: '70', plannedMw: '+150', asOf: '2026-03' }
+];
