@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inudstria x Tokenomics Global Dashboard</title>
+    <title>Firebird.ai Global Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,6 +27,14 @@
       </div>
       <p class="subtitle">
         NVIDIA Blackwell economics, neocloud pricing curves, and energy system signals.
+        <div class="brand-logo" aria-label="Firebird logo placeholder">F</div>
+        <div>
+          <p class="brand-eyebrow">Firebird.ai</p>
+          <h1>Global Dashboard</h1>
+        </div>
+      </div>
+      <p class="subtitle">
+        NVIDIA Blackwell economics, neocloud pricing curves, and energy-supply market intelligence.
       </p>
       <div class="meta-row">
         <span>Price sheet as of: <strong id="sheetAsOf"></strong></span>
@@ -54,6 +63,10 @@
             Region
             <select id="regionFilter"></select>
           </label>
+          <label>
+            Forecast Scenario
+            <select id="forecastScenarioFilter"></select>
+          </label>
         </div>
       </section>
 
@@ -70,6 +83,8 @@
         <div>
           <h2>Quarterly Price Outlook Tracker</h2>
           <p class="muted">Outlook reflects current constrained-memory assumptions for 2026 pricing.</p>
+          <h2 id="trendChartTitle">Quarterly Price Outlook Tracker</h2>
+          <p class="muted" id="trendScenarioBlurb"></p>
           <canvas id="declineChart"></canvas>
         </div>
       </section>
@@ -77,6 +92,7 @@
       <section class="panel">
         <h2>Pricing Source Tracker</h2>
         <p class="muted">Includes refreshed Nebius pricing rows and source-tracked entries for other neoclouds.</p>
+        <p class="muted">Use this section to reconcile revised provider price sheets (e.g., updated Nebius listings) and quote-based adjustments.</p>
         <div class="table-wrap">
           <table>
             <thead>
@@ -99,6 +115,10 @@
         <h2>Energy Systems Map</h2>
         <p class="muted">
           Country color shows estimated power surplus (MW). Map logos: 💧 hydro, 🔥 thermal, ☢️ nuclear. Includes countries with these energy types even when surplus is modest.
+        <h2>Energy Exporter Advantage Map</h2>
+        <p class="muted">
+          Country color shows estimated power export surplus (MW). Bubble size reflects available exportable power.
+          Hover for average industrial power cost ($/MWh).
         </p>
         <div id="energyMap"></div>
       </section>
@@ -116,6 +136,10 @@
           </li>
           <li>
             Paraguay is now included in map data (Itaipu-driven hydro context) with explicit energy-type logos.
+            Scenario control supports both easing and memory-shortage cases, including an upside path where 2026 rates rise by ~40%.
+          </li>
+          <li>
+            Keep at least three source classes per provider: published list, quote sample, and contracted realized rate.
           </li>
           <li>
             Refresh this file weekly or load from a backend table keyed by provider, sku, contract, and as-of date.

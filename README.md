@@ -1,6 +1,7 @@
 # Inudstria x Tokenomics Global Dashboard
 
 A lightweight static dashboard for tracking neocloud GPU prices (B200, GB200, Vera Rubin), contract curves, quarterly outlook trends, and energy-market context.
+A lightweight static dashboard for tracking neocloud GPU prices (B200, GB200, Vera Rubin), contract curves, quarterly decline trends, and energy exporter market context.
 
 ## Run locally
 
@@ -42,6 +43,25 @@ The map uses:
   - ☢️ nuclear
 
 Countries can appear on the map even with low surplus if they are strategically relevant for energy mix.
+### Example: adjusting Nebius rows
+
+If Nebius revises B200 on-demand price, edit these rows in `data.js`:
+- `provider: 'Nebius'`
+- `gpu: 'B200'`
+- contracts `on-demand` / `monthly` / `yearly`
+
+Also update `asOf` to the date of the revised sheet.
+
+---
+
+
+### Forecast direction control (up or down)
+
+The dashboard now supports two forecast scenarios in `data.js` via `forecastScenarios`:
+- `easing`: supply growth leads to softer pricing
+- `memory_shortage_2026`: tighter memory supply drives roughly +40% rental pricing into late 2026
+
+Use the **Forecast Scenario** dropdown in the UI to switch between cases.
 
 ---
 
@@ -62,12 +82,29 @@ Because this project is static (`index.html`, CSS, JS), the easiest hosting opti
 
 ## Option 2: Netlify (drag-and-drop or Git-connected)
 
+### Important for GitHub Pages
+If your site is served from a subpath (`/<repo-name>/`), ensure any absolute asset paths are avoided. This dashboard already uses relative paths, so it is compatible.
+
+---
+
+## Option 2: Netlify (drag-and-drop or Git-connected)
+
+### Drag-and-drop publish
+1. Go to Netlify and create a new site.
+2. Drag the project folder into Netlify deploy UI.
+3. Netlify instantly gives you a URL.
+
+### Git-connected publish
 1. In Netlify, click **Add new site → Import an existing project**.
 2. Connect GitHub and select this repo.
 3. Build settings:
    - **Build command**: *(leave empty)*
    - **Publish directory**: `.`
 4. Deploy.
+
+The included `netlify.toml` already sets publish to root and adds a cache header for static assets.
+
+---
 
 ## Option 3: Vercel (Git-connected)
 
@@ -77,3 +114,28 @@ Because this project is static (`index.html`, CSS, JS), the easiest hosting opti
 4. Build command: none.
 5. Output directory: `.`
 6. Deploy.
+
+The included `vercel.json` tells Vercel to serve this as a static site.
+
+---
+
+## Production next steps (recommended)
+
+To make this truly dynamic for CEO-grade planning:
+
+1. Replace hardcoded `data.js` with API-driven data.
+2. Add a daily/weekly data pipeline for:
+   - provider list pricing pages,
+   - enterprise quote snapshots,
+   - analyst/market intelligence inputs,
+   - power market datasets by country.
+3. Store historical snapshots in a database (e.g., Postgres/BigQuery).
+4. Add “as-of date” and source citations in UI.
+5. Add alerts (e.g., quarterly decline > 8%, or contract spread widening).
+
+## Suggested architecture
+
+- Frontend: this static dashboard (or migrate to React later).
+- Backend API: serverless endpoint for normalized price + energy datasets.
+- Data jobs: scheduled ETL (GitHub Actions, Cloud Run jobs, or Airflow).
+- Storage: analytics table keyed by `provider, gpu, region, contract, date`.
