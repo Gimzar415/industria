@@ -1,3 +1,6 @@
+# Inudstria x Tokenomics Global Dashboard
+
+A lightweight static dashboard for tracking neocloud GPU prices (B200, GB200, Vera Rubin), contract curves, quarterly outlook trends, and energy-market context.
 A lightweight static dashboard for tracking neocloud GPU prices (B200, GB200, Vera Rubin), contract curves, quarterly decline trends, and energy exporter market context.
 
 ## Run locally
@@ -24,6 +27,22 @@ If listed rates changed and current values look too high/low, update `data.js` i
    - `estimated-discount` = modeled contract discount from list pricing
    - `forecast` = pre-launch expectation (e.g., Vera Rubin)
 
+### Nebius focus
+
+Nebius rows are now included for both B200 and GB200 contracts. When Nebius updates published pricing, refresh these records first and bump the `asOf` date.
+
+---
+
+## Energy map data (hydro / thermal / nuclear)
+
+The map uses:
+- choropleth color for estimated country surplus MW,
+- emoji logos for energy profile:
+  - 💧 hydro
+  - 🔥 thermal
+  - ☢️ nuclear
+
+Countries can appear on the map even with low surplus if they are strategically relevant for energy mix.
 ### Example: adjusting Nebius rows
 
 If Nebius revises B200 on-demand price, edit these rows in `data.js`:
@@ -60,6 +79,8 @@ Because this project is static (`index.html`, CSS, JS), the easiest hosting opti
 4. Save, then wait 1–2 minutes.
 5. Your site will be live at:
    - `https://<your-org-or-user>.github.io/<repo-name>/`
+
+## Option 2: Netlify (drag-and-drop or Git-connected)
 
 ### Important for GitHub Pages
 If your site is served from a subpath (`/<repo-name>/`), ensure any absolute asset paths are avoided. This dashboard already uses relative paths, so it is compatible.

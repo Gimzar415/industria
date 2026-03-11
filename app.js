@@ -47,6 +47,7 @@ function renderPriceComparison() {
   if (priceComparisonChart) priceComparisonChart.destroy();
   priceComparisonChart = new Chart(document.getElementById('priceComparisonChart'), {
     type: 'bar',
+    data: { labels, datasets: [{ label: '$/GPU-hour', data: rates, backgroundColor: '#54b2ff' }] },
     data: {
       labels,
       datasets: [{ label: '$/GPU-hour', data: rates, backgroundColor: '#54b2ff' }]
@@ -87,6 +88,9 @@ function renderContractCurve() {
   });
 }
 
+function renderOutlookChart() {
+  const selectedGpu = gpuFilter.value === 'all' ? 'B200' : gpuFilter.value;
+  const series = quarterlyOutlookData[selectedGpu] || quarterlyOutlookData.B200;
 function renderDeclineChart() {
   const selectedGpu = gpuFilter.value === 'all' ? 'B200' : gpuFilter.value;
   const scenario = activeScenario();
@@ -102,6 +106,7 @@ function renderDeclineChart() {
       labels: series.labels,
       datasets: [
         {
+          label: `${selectedGpu} market outlook`,
           label: `${selectedGpu} market forecast`,
           data: series.rates,
           borderColor: '#76f8cc',
@@ -120,6 +125,53 @@ function renderDeclineChart() {
 }
 
 function renderEnergyMap() {
+  const exporterChoropleth = {
+    type: 'choropleth',
+    locations: energyCountryData.map((c) => c.iso3),
+    z: energyCountryData.map((c) => c.surplusMw),
+    text: energyCountryData.map(
+      (c) => `${c.country}<br>Surplus: ${c.surplusMw.toLocaleString()} MW<br>Avg cost: $${c.costMwh}/MWh`
+    ),
+    colorscale: 'Blues',
+    marker: { line: { color: '#12213f', width: 0.8 } },
+    colorbar: { title: 'MW surplus' }
+  };
+
+  const hydroLogos = {
+    type: 'scattergeo',
+    mode: 'text',
+    lon: energyCountryData.filter((c) => c.hydro).map((c) => c.lon),
+    lat: energyCountryData.filter((c) => c.hydro).map((c) => c.lat),
+    text: energyCountryData.filter((c) => c.hydro).map(() => '💧'),
+    textposition: 'top center',
+    name: 'Hydro',
+    hovertext: energyCountryData.filter((c) => c.hydro).map((c) => `${c.country} · Hydro`),
+    hoverinfo: 'text'
+  };
+
+  const thermalLogos = {
+    type: 'scattergeo',
+    mode: 'text',
+    lon: energyCountryData.filter((c) => c.thermal).map((c) => c.lon),
+    lat: energyCountryData.filter((c) => c.thermal).map((c) => c.lat),
+    text: energyCountryData.filter((c) => c.thermal).map(() => '🔥'),
+    textposition: 'middle right',
+    name: 'Thermal',
+    hovertext: energyCountryData.filter((c) => c.thermal).map((c) => `${c.country} · Thermal`),
+    hoverinfo: 'text'
+  };
+
+  const nuclearLogos = {
+    type: 'scattergeo',
+    mode: 'text',
+    lon: energyCountryData.filter((c) => c.nuclear).map((c) => c.lon),
+    lat: energyCountryData.filter((c) => c.nuclear).map((c) => c.lat),
+    text: energyCountryData.filter((c) => c.nuclear).map(() => '☢️'),
+    textposition: 'bottom center',
+    name: 'Nuclear',
+    hovertext: energyCountryData.filter((c) => c.nuclear).map((c) => `${c.country} · Nuclear`),
+    hoverinfo: 'text'
+  };
   const mapData = [
     {
       type: 'choropleth',
@@ -148,6 +200,10 @@ function renderEnergyMap() {
     }
   };
 
+  Plotly.newPlot('energyMap', [exporterChoropleth, hydroLogos, thermalLogos, nuclearLogos], layout, {
+    responsive: true,
+    displayModeBar: false
+  });
   Plotly.newPlot('energyMap', mapData, layout, { responsive: true, displayModeBar: false });
 }
 
@@ -186,6 +242,11 @@ function renderMetadata() {
 function refreshCharts() {
   renderPriceComparison();
   renderContractCurve();
+  renderOutlookChart();
+  renderSourceTable();
+}
+
+[gpuFilter, contractFilter, regionFilter].forEach((el) => {
   renderDeclineChart();
   renderSourceTable();
 }
