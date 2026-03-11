@@ -5,7 +5,6 @@ let declineChart;
 const gpuFilter = document.getElementById('gpuFilter');
 const contractFilter = document.getElementById('contractFilter');
 const regionFilter = document.getElementById('regionFilter');
-const forecastScenarioFilter = document.getElementById('forecastScenarioFilter');
 
 function uniqueValues(data, key) {
   return [...new Set(data.map((item) => item[key]))];
@@ -15,15 +14,10 @@ function populateFilters() {
   const gpus = uniqueValues(pricingData, 'gpu');
   const regions = uniqueValues(pricingData, 'region');
 
-  gpuFilter.innerHTML = '<option value="all">All</option>' + gpus.map((gpu) => `<option value="${gpu}">${gpu}</option>`).join('');
+  gpuFilter.innerHTML = gpus.map((gpu) => `<option value="${gpu}">${gpu}</option>`).join('');
+  gpuFilter.value = gpus.includes('B200') ? 'B200' : gpus[0];
   regionFilter.innerHTML =
     '<option value="all">All regions</option>' + regions.map((region) => `<option value="${region}">${region}</option>`).join('');
-
-  const scenarioOptions = Object.entries(forecastScenarios)
-    .map(([key, value]) => `<option value="${key}">${value.label}</option>`)
-    .join('');
-  forecastScenarioFilter.innerHTML = scenarioOptions;
-  forecastScenarioFilter.value = 'memory_shortage_2026';
 }
 
 function filteredPricing() {
@@ -35,10 +29,6 @@ function filteredPricing() {
   });
 }
 
-function activeScenario() {
-  return forecastScenarios[forecastScenarioFilter.value] || forecastScenarios.memory_shortage_2026;
-}
-
 function renderPriceComparison() {
   const data = filteredPricing();
   const labels = data.map((d) => `${d.provider} · ${d.gpu} · ${d.contract}`);
@@ -48,10 +38,6 @@ function renderPriceComparison() {
   priceComparisonChart = new Chart(document.getElementById('priceComparisonChart'), {
     type: 'bar',
     data: { labels, datasets: [{ label: '$/GPU-hour', data: rates, backgroundColor: '#54b2ff' }] },
-    data: {
-      labels,
-      datasets: [{ label: '$/GPU-hour', data: rates, backgroundColor: '#54b2ff' }]
-    },
     options: {
       responsive: true,
       plugins: { legend: { labels: { color: '#eaf0ff' } } },
@@ -89,15 +75,8 @@ function renderContractCurve() {
 }
 
 function renderOutlookChart() {
-  const selectedGpu = gpuFilter.value === 'all' ? 'B200' : gpuFilter.value;
+  const selectedGpu = gpuFilter.value || 'B200';
   const series = quarterlyOutlookData[selectedGpu] || quarterlyOutlookData.B200;
-function renderDeclineChart() {
-  const selectedGpu = gpuFilter.value === 'all' ? 'B200' : gpuFilter.value;
-  const scenario = activeScenario();
-  const series = scenario.series[selectedGpu] || scenario.series.B200;
-
-  document.getElementById('trendChartTitle').textContent = 'Quarterly Price Outlook Tracker';
-  document.getElementById('trendScenarioBlurb').textContent = scenario.description;
 
   if (declineChart) declineChart.destroy();
   declineChart = new Chart(document.getElementById('declineChart'), {
@@ -107,7 +86,6 @@ function renderDeclineChart() {
       datasets: [
         {
           label: `${selectedGpu} market outlook`,
-          label: `${selectedGpu} market forecast`,
           data: series.rates,
           borderColor: '#76f8cc',
           backgroundColor: '#76f8cc33',
@@ -164,27 +142,14 @@ function renderEnergyMap() {
   const nuclearLogos = {
     type: 'scattergeo',
     mode: 'text',
-    lon: energyCountryData.filter((c) => c.nuclear).map((c) => c.lon),
-    lat: energyCountryData.filter((c) => c.nuclear).map((c) => c.lat),
-    text: energyCountryData.filter((c) => c.nuclear).map(() => '☢️'),
+    lon: nuclearPowerCountries.map((c) => c.lon),
+    lat: nuclearPowerCountries.map((c) => c.lat),
+    text: nuclearPowerCountries.map(() => '☢️'),
     textposition: 'bottom center',
     name: 'Nuclear',
-    hovertext: energyCountryData.filter((c) => c.nuclear).map((c) => `${c.country} · Nuclear`),
+    hovertext: nuclearPowerCountries.map((c) => `${c.country} · Nuclear`),
     hoverinfo: 'text'
   };
-  const mapData = [
-    {
-      type: 'choropleth',
-      locations: energyExporterData.map((c) => c.iso3),
-      z: energyExporterData.map((c) => c.surplusMw),
-      text: energyExporterData.map(
-        (c) => `${c.country}<br>Exportable surplus: ${c.surplusMw.toLocaleString()} MW<br>Avg cost: $${c.costMwh}/MWh`
-      ),
-      colorscale: 'Blues',
-      marker: { line: { color: '#12213f', width: 0.8 } },
-      colorbar: { title: 'MW surplus' }
-    }
-  ];
 
   const layout = {
     paper_bgcolor: '#111829',
@@ -204,7 +169,6 @@ function renderEnergyMap() {
     responsive: true,
     displayModeBar: false
   });
-  Plotly.newPlot('energyMap', mapData, layout, { responsive: true, displayModeBar: false });
 }
 
 function renderKpis() {
@@ -247,11 +211,6 @@ function refreshCharts() {
 }
 
 [gpuFilter, contractFilter, regionFilter].forEach((el) => {
-  renderDeclineChart();
-  renderSourceTable();
-}
-
-[gpuFilter, contractFilter, regionFilter, forecastScenarioFilter].forEach((el) => {
   el.addEventListener('change', refreshCharts);
 });
 
