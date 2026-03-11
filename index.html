@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Daily Digest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <h1>AI Daily Digest <span id="displayDate">—</span></h1>
+        <p class="subtitle">The day’s top AI cloud, infrastructure, GPU, and neocloud headlines.</p>
+      </div>
+      <div class="controls">
+        <p class="updated">Updated: <span id="generatedAt">—</span></p>
+        <input id="searchBox" type="search" placeholder="Search headlines or summaries" />
+        <select id="sourceFilter"><option value="all">All sources</option></select>
+        <select id="tagFilter"><option value="all">All tags</option></select>
+      </div>
+    </header>
+
+    <main>
+      <section id="digestRoot" class="digest-grid" aria-live="polite"></section>
+      <section id="fallback" class="fallback" hidden>
+        <h2>Digest unavailable</h2>
+        <p>We could not load today’s digest data. Please try again in a few minutes.</p>
+      </section>
+    </main>
+  </body>
+</html>
