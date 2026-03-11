@@ -1,0 +1,163 @@
+{
+  "generated_at": "2026-03-11T20:07:49.611985+00:00",
+  "display_date": "March 11, 2026",
+  "items": [
+    {
+      "rank": 1,
+      "headline": "NVIDIA invests $2 billion in Nebius to expand AI cloud and Blackwell infrastructure capacity",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/",
+      "published_at": "2026-03-11T17:32:05.159554+00:00",
+      "summary": "Reuters reports NVIDIA invests $2 billion in Nebius to expand AI cloud and Blackwell infrastructure capacity, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Large strategic capital commitments can rapidly reshape neocloud capacity, pricing power, and Blackwell deployment velocity.",
+      "tags": [
+        "Investment",
+        "Financing",
+        "GPU",
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 94.0,
+      "dedupe_key": "nvidia invests 2 billion in nebius to expand ai cloud and blackwell infrastructure capacity"
+    },
+    {
+      "rank": 2,
+      "headline": "Oracle expands sovereign AI cloud footprint with fresh cluster financing",
+      "source": "Financial Times",
+      "url": "https://www.ft.com/technology",
+      "published_at": "2026-03-11T16:32:05.159554+00:00",
+      "summary": "Financial Times reports Oracle expands sovereign AI cloud footprint with fresh cluster financing, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Capital flow indicates where new compute supply and pricing leverage are likely to form.",
+      "tags": [
+        "Financing",
+        "Cloud",
+        "Sovereign AI",
+        "Capacity"
+      ],
+      "score": 57.2,
+      "dedupe_key": "oracle expands sovereign ai cloud footprint with fresh cluster financing"
+    },
+    {
+      "rank": 3,
+      "headline": "Vertiv launches liquid cooling stack for GB200 and GB300 halls",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/",
+      "published_at": "2026-03-11T01:32:05.159554+00:00",
+      "summary": "Data Center Dynamics reports Vertiv launches liquid cooling stack for GB200 and GB300 halls, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Infrastructure and energy constraints directly shape available AI compute and operating margins.",
+      "tags": [
+        "Launch",
+        "GPU",
+        "Cooling"
+      ],
+      "score": 57.1,
+      "dedupe_key": "vertiv launches liquid cooling stack for gb200 and gb300 halls"
+    },
+    {
+      "rank": 4,
+      "headline": "Nebius adds Blackwell capacity in Europe with power and network upgrades",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/europe/nebius-blackwell-capacity-europe",
+      "published_at": "2026-03-10T22:32:05.159554+00:00",
+      "summary": "Reuters reports Nebius adds Blackwell capacity in Europe with power and network upgrades, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Infrastructure and energy constraints directly shape available AI compute and operating margins.",
+      "tags": [
+        "GPU",
+        "Power",
+        "Capacity"
+      ],
+      "score": 55.7,
+      "dedupe_key": "nebius adds blackwell capacity in europe with power and network upgrades"
+    },
+    {
+      "rank": 5,
+      "headline": "OpenAI signs expanded cloud capacity agreement for inference demand",
+      "source": "Axios",
+      "url": "https://www.axios.com/",
+      "published_at": "2026-03-09T22:32:05.159554+00:00",
+      "summary": "Axios reports OpenAI signs expanded cloud capacity agreement for inference demand, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Infrastructure and energy constraints directly shape available AI compute and operating margins.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 51.5,
+      "dedupe_key": "openai signs expanded cloud capacity agreement for inference demand"
+    },
+    {
+      "rank": 6,
+      "headline": "CoreWeave signs multi-year GPU offtake tied to new AI datacenter capacity",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/",
+      "published_at": "2026-03-11T19:32:05.159554+00:00",
+      "summary": "Reuters reports CoreWeave signs multi-year GPU offtake tied to new AI datacenter capacity, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Infrastructure and energy constraints directly shape available AI compute and operating margins.",
+      "tags": [
+        "GPU",
+        "Capacity"
+      ],
+      "score": 49.5,
+      "dedupe_key": "coreweave signs multiyear gpu offtake tied to new ai datacenter capacity"
+    },
+    {
+      "rank": 7,
+      "headline": "AWS expands training cluster procurement with additional fiber and switches",
+      "source": "Axios",
+      "url": "https://www.axios.com/",
+      "published_at": "2026-03-10T16:32:05.159554+00:00",
+      "summary": "Axios reports AWS expands training cluster procurement with additional fiber and switches, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "This development can influence GPU availability, contract terms, and infrastructure planning priorities.",
+      "tags": [
+        "Networking",
+        "Capacity"
+      ],
+      "score": 44.5,
+      "dedupe_key": "aws expands training cluster procurement with additional fiber and switches"
+    },
+    {
+      "rank": 8,
+      "headline": "AI infrastructure round-up item 1: additional capacity and financing update",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/",
+      "published_at": "2026-03-08T11:32:05.159554+00:00",
+      "summary": "Reuters reports AI infrastructure round-up item 1: additional capacity and financing update, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Capital flow indicates where new compute supply and pricing leverage are likely to form.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 44.4,
+      "dedupe_key": "ai infrastructure roundup item 1 additional capacity and financing update"
+    },
+    {
+      "rank": 9,
+      "headline": "AI infrastructure round-up item 2: additional capacity and financing update",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/",
+      "published_at": "2026-03-08T10:32:05.159554+00:00",
+      "summary": "Reuters reports AI infrastructure round-up item 2: additional capacity and financing update, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Capital flow indicates where new compute supply and pricing leverage are likely to form.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 44.4,
+      "dedupe_key": "ai infrastructure roundup item 2 additional capacity and financing update"
+    },
+    {
+      "rank": 10,
+      "headline": "AI infrastructure round-up item 3: additional capacity and financing update",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/technology/",
+      "published_at": "2026-03-08T09:32:05.159554+00:00",
+      "summary": "Reuters reports AI infrastructure round-up item 3: additional capacity and financing update, with direct implications for AI cloud capacity, infrastructure economics, and deployment strategy.",
+      "why_it_matters": "Capital flow indicates where new compute supply and pricing leverage are likely to form.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 44.4,
+      "dedupe_key": "ai infrastructure roundup item 3 additional capacity and financing update"
+    }
+  ]
+}

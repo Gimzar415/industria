@@ -1,0 +1,39 @@
+:root {
+  --bg: #080c17;
+  --panel: #12192c;
+  --panel-alt: #18243f;
+  --text: #eaf0ff;
+  --muted: #a6b5d8;
+  --accent: #54b2ff;
+  --accent-2: #76f8cc;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; color: var(--text); background: radial-gradient(circle at top right, #1a2f5c 0%, var(--bg) 40%); }
+.site-header, main { width: min(1200px, 92vw); margin: 0 auto; }
+.site-header { padding: 2rem 0 1rem; }
+.brand { display: flex; align-items: center; gap: 1rem; }
+.brand-logo { height: 48px; width: 48px; border-radius: 14px; display: grid; place-content: center; font-weight: 700; background: linear-gradient(140deg, var(--accent), var(--accent-2)); color: #031126; }
+.subtitle { color: var(--muted); }
+.meta-row { display: flex; gap: 1rem; flex-wrap: wrap; color: var(--muted); font-size: .9rem; }
+main { padding-bottom: 2rem; }
+.panel { background: linear-gradient(170deg, var(--panel) 0%, #111829 100%); border: 1px solid #24304d; border-radius: 16px; padding: 1rem 1.2rem 1.4rem; margin-bottom: 1rem; }
+.controls { background: linear-gradient(170deg, var(--panel-alt) 0%, #141b2d 100%); }
+.grid-controls { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: .8rem; }
+label { display: flex; flex-direction: column; gap: .35rem; color: var(--muted); font-size: .9rem; }
+select { background: #1e2b4a; border: 1px solid #364a7a; border-radius: 10px; color: var(--text); padding: .55rem; }
+h2 { margin-top: .2rem; margin-bottom: .7rem; font-size: 1.12rem; }
+.two-col { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 1rem; }
+.muted { color: var(--muted); margin-top: 0; }
+#energyMap { min-height: 520px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: .7rem; }
+.kpi-card { border: 1px solid #2c3b5f; background: #17203a; border-radius: 12px; padding: .8rem; }
+.kpi-card h3 { margin: 0; font-size: 1rem; }
+.kpi-card p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #2c3b5f; }
+a { color: var(--accent-2); }
+.headline-list { margin: 0; padding-left: 1.1rem; display: grid; gap: .35rem; }
+.headline-list a { color: #dfe9ff; text-decoration: none; }
+.headline-list a:hover { color: var(--accent-2); text-decoration: underline; }
+.news-source { color: var(--muted); font-size: .85rem; }
