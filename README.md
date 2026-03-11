@@ -1,5 +1,3 @@
-# Firebird.ai Global Dashboard
-
 A lightweight static dashboard for tracking neocloud GPU prices (B200, GB200, Vera Rubin), contract curves, quarterly decline trends, and energy exporter market context.
 
 ## Run locally
