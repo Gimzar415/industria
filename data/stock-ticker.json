@@ -1,9 +1,0 @@
-{
-  "updatedAt": "2026-03-11",
-  "items": [
-    { "symbol": "CRWV", "name": "CoreWeave", "price": 62.11, "changePct": 1.42 },
-    { "symbol": "NBIS", "name": "Nebius", "price": 28.37, "changePct": -0.83 },
-    { "symbol": "ORCL", "name": "Oracle", "price": 141.05, "changePct": 0.56 },
-    { "symbol": "NVDA", "name": "NVIDIA", "price": 119.73, "changePct": 2.14 }
-  ]
-}
