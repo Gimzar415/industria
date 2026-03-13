@@ -1,48 +1,18 @@
-# Inudstria x Tokenomics Global Dashboard
+# Atticus' Space Playground
 
-This project keeps the GPU infrastructure dashboard and appends AI news + neocloud tracking at the bottom.
+A twilight-themed drag-and-drop web game where players build a space elevator using 3D-printable block modules.
 
-## What changed
+## Gameplay
 
-- Bottom news list now shows **Top 10** headlines only (one line each, hyperlinked).
-- Digest generation now keeps only **actual article-style links** from supported sources and rejects malformed/double URLs.
-- If source fetch fails, the generator preserves the previous working digest instead of publishing broken fallback links.
-- Added bottom neocloud table with:
-  - name
-  - link
-  - capital raised
-  - current MW
-  - planned MW additions
-  - as-of date
+- Drag pieces from the **3D Printable Block Crate** into the tower stages.
+- Match each stage's required module to maximize points.
+- Earn bonus points for correct placements and a full perfect elevator.
+- Toggle procedural **deep space ambient music** directly in the app.
 
-## News refresh workflow
-
-Workflow: `.github/workflows/daily-digest.yml`
-- scheduled daily at **5:00 AM EST** (`10:00 UTC` cron)
-- manual `workflow_dispatch`
-
-## Local run
+## Run locally
 
 ```bash
-python3 scripts/fetch_digest.py
-python3 -m http.server 4173 --bind 0.0.0.0
+python3 -m http.server 8000
 ```
 
-Open `http://localhost:4173`.
-
-## Source focus
-
-Digest ingestion prefers these sources via RSS where available:
-- Reuters
-- Financial Times
-- Data Center Dynamics
-- Axios
-- CIO Dive
-- The AI Insider
-
-## GitHub Pages deploy
-
-1. Push to GitHub.
-2. Settings → Pages.
-3. Source: Deploy from branch.
-4. Branch: `main`, folder `/ (root)`.
+Then open `http://localhost:8000`.
