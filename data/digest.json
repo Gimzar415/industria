@@ -1,0 +1,163 @@
+{
+  "generated_at": "2026-03-11T21:47:29.705363+00:00",
+  "display_date": "March 11, 2026",
+  "items": [
+    {
+      "headline": "Paraguay hydropower corridor attracts AI campus proposals from neocloud operators",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/paraguay-ai-campus-hydropower/",
+      "published_at": "2026-03-11T21:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports Paraguay hydropower corridor attracts AI campus proposals from neocloud operators, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 70,
+      "dedupe_key": "paraguay hydropower corridor attracts ai campus proposals from neocloud operators",
+      "rank": 1
+    },
+    {
+      "headline": "Vertiv launches liquid cooling stack for GB200 and GB300 halls",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/vertiv-liquid-cooling-gb300/",
+      "published_at": "2026-03-11T18:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports Vertiv launches liquid cooling stack for GB200 and GB300 halls, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 69,
+      "dedupe_key": "vertiv launches liquid cooling stack for gb200 and gb300 halls",
+      "rank": 2
+    },
+    {
+      "headline": "CoreWeave and utility sign cooling-water and substation package",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/coreweave-utility-cooling-substation/",
+      "published_at": "2026-03-11T15:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports CoreWeave and utility sign cooling-water and substation package, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 68,
+      "dedupe_key": "coreweave and utility sign coolingwater and substation package",
+      "rank": 3
+    },
+    {
+      "headline": "Grid operator launches fast-track queue for AI datacenter interconnects",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/ai-datacenter-grid-fast-track/",
+      "published_at": "2026-03-11T12:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports Grid operator launches fast-track queue for AI datacenter interconnects, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 67,
+      "dedupe_key": "grid operator launches fasttrack queue for ai datacenter interconnects",
+      "rank": 4
+    },
+    {
+      "headline": "Oracle expands sovereign AI cloud footprint with fresh cluster financing",
+      "source": "Financial Times",
+      "url": "https://www.ft.com/content/oracle-sovereign-ai-cluster",
+      "published_at": "2026-03-11T09:47:29.705363+00:00",
+      "summary": "Financial Times reports Oracle expands sovereign AI cloud footprint with fresh cluster financing, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 66,
+      "dedupe_key": "oracle expands sovereign ai cloud footprint with fresh cluster financing",
+      "rank": 5
+    },
+    {
+      "headline": "Sovereign fund backs national AI factory with multi-gigawatt roadmap",
+      "source": "Financial Times",
+      "url": "https://www.ft.com/content/sovereign-fund-ai-factory",
+      "published_at": "2026-03-11T06:47:29.705363+00:00",
+      "summary": "Financial Times reports Sovereign fund backs national AI factory with multi-gigawatt roadmap, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 65,
+      "dedupe_key": "sovereign fund backs national ai factory with multigigawatt roadmap",
+      "rank": 6
+    },
+    {
+      "headline": "M&A momentum grows around AI colocation assets near low-cost power",
+      "source": "Financial Times",
+      "url": "https://www.ft.com/content/ai-colocation-ma-talks",
+      "published_at": "2026-03-11T03:47:29.705363+00:00",
+      "summary": "Financial Times reports M&A momentum grows around AI colocation assets near low-cost power, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 64,
+      "dedupe_key": "ma momentum grows around ai colocation assets near lowcost power",
+      "rank": 7
+    },
+    {
+      "headline": "AWS expands training cluster procurement with additional fiber and switches",
+      "source": "Axios",
+      "url": "https://www.axios.com/2026/03/11/aws-training-cluster-networking",
+      "published_at": "2026-03-11T00:47:29.705363+00:00",
+      "summary": "Axios reports AWS expands training cluster procurement with additional fiber and switches, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 63,
+      "dedupe_key": "aws expands training cluster procurement with additional fiber and switches",
+      "rank": 8
+    },
+    {
+      "headline": "OpenAI signs expanded cloud capacity agreement for inference demand",
+      "source": "Axios",
+      "url": "https://www.axios.com/2026/03/11/openai-capacity-agreement",
+      "published_at": "2026-03-10T21:47:29.705363+00:00",
+      "summary": "Axios reports OpenAI signs expanded cloud capacity agreement for inference demand, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 62,
+      "dedupe_key": "openai signs expanded cloud capacity agreement for inference demand",
+      "rank": 9
+    },
+    {
+      "headline": "Infrastructure teams benchmark InfiniBand against Ethernet for AI fabrics",
+      "source": "CIO Dive",
+      "url": "https://www.ciodive.com/news/infiniband-vs-ethernet-ai-fabric/",
+      "published_at": "2026-03-10T18:47:29.705363+00:00",
+      "summary": "CIO Dive reports Infrastructure teams benchmark InfiniBand against Ethernet for AI fabrics, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
+      "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
+      "tags": [
+        "Cloud",
+        "Capacity"
+      ],
+      "score": 61,
+      "dedupe_key": "infrastructure teams benchmark infiniband against ethernet for ai fabrics",
+      "rank": 10
+    }
+  ],
+  "source_status": {
+    "Financial Times": "failed/empty",
+    "Data Center Dynamics": "failed/empty",
+    "Axios": "failed/empty",
+    "CIO Dive": "failed/empty",
+    "The AI Insider": "failed/empty"
+  }
+}
