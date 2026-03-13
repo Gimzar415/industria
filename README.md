@@ -1,13 +1,15 @@
 # Atticus' Space Playground
 
-A twilight-themed drag-and-drop web game where players build a space elevator using 3D-printable block modules.
+Atticus' Space Playground is an entirely new web game project.
 
-## Gameplay
+Build a space elevator by dragging 3D-printable modules into the correct tower stages, earn points for correct placements, and enjoy a twilight-space atmosphere with ambient synth music.
 
-- Drag pieces from the **3D Printable Block Crate** into the tower stages.
-- Match each stage's required module to maximize points.
-- Earn bonus points for correct placements and a full perfect elevator.
-- Toggle procedural **deep space ambient music** directly in the app.
+## Features
+- Drag-and-drop game board
+- Scoring + best-score persistence (localStorage)
+- Stage correctness feedback
+- Resettable gameplay loop
+- Deep-space ambient audio toggle
 
 ## Run locally
 
@@ -15,4 +17,8 @@ A twilight-themed drag-and-drop web game where players build a space elevator us
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Open:
+- `http://localhost:8000`
+
+## Deploy
+This is a static site and can be deployed on any static host (GitHub Pages, Netlify, Vercel, etc.).
