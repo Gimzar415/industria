@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-12",
+  "updatedAt": "2026-03-11",
   "frequency": "daily",
   "series": [
     {
@@ -48,12 +48,6 @@
       "date": "2026-03-11",
       "storage": 0.126,
       "memory": 5.14,
-      "cpu": 0.046
-    },
-    {
-      "date": "2026-03-12",
-      "storage": 0.126,
-      "memory": 5.171,
       "cpu": 0.046
     }
   ]

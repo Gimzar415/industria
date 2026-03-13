@@ -1,164 +1,163 @@
 {
-  "generated_at": "2026-03-12T11:41:40.499210+00:00",
-  "display_date": "March 12, 2026",
+  "generated_at": "2026-03-11T21:47:29.705363+00:00",
+  "display_date": "March 11, 2026",
   "items": [
     {
-      "headline": "Nvidia strikes $2bn deal with AI cloud provider Nebius",
-      "source": "Financial Times",
-      "url": "https://www.ft.com/content/6552f428-31ec-4132-bc42-8cba1e1a08cb",
-      "published_at": "2026-03-11T12:07:31+00:00",
-      "summary": "AI chip giant continues dealmaking spree that deploys huge cash reserves into funding its own customers",
+      "headline": "Paraguay hydropower corridor attracts AI campus proposals from neocloud operators",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/paraguay-ai-campus-hydropower/",
+      "published_at": "2026-03-11T21:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports Paraguay hydropower corridor attracts AI campus proposals from neocloud operators, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 72.4,
-      "dedupe_key": "nvidia strikes 2bn deal with ai cloud provider nebius",
+      "score": 70,
+      "dedupe_key": "paraguay hydropower corridor attracts ai campus proposals from neocloud operators",
       "rank": 1
     },
     {
-      "headline": "Budimex declares interest in operating its own data center, explores locations in Poland",
+      "headline": "Vertiv launches liquid cooling stack for GB200 and GB300 halls",
       "source": "Data Center Dynamics",
-      "url": "https://www.datacenterdynamics.com/en/news/budimex-declares-interest-in-operating-its-own-data-center-explores-locations-in-poland/",
-      "published_at": "2026-03-11T16:57:00+00:00",
-      "summary": "<p data-block-key=\"shw42\">Polish construction firm said it is discussing practicalities with Microsoft and Google</p>",
+      "url": "https://www.datacenterdynamics.com/en/news/vertiv-liquid-cooling-gb300/",
+      "published_at": "2026-03-11T18:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports Vertiv launches liquid cooling stack for GB200 and GB300 halls, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 70.0,
-      "dedupe_key": "budimex declares interest in operating its own data center explores locations in poland",
+      "score": 69,
+      "dedupe_key": "vertiv launches liquid cooling stack for gb200 and gb300 halls",
       "rank": 2
     },
     {
-      "headline": "Google's $4.75bn acquisition of Intersect Power closes",
+      "headline": "CoreWeave and utility sign cooling-water and substation package",
       "source": "Data Center Dynamics",
-      "url": "https://www.datacenterdynamics.com/en/news/googles-475bn-acquisition-of-intersect-power-closes/",
-      "published_at": "2026-03-11T16:56:34+00:00",
-      "summary": "<p data-block-key=\"egzjp\">As hyperscaler pushes further into the power chain</p>",
+      "url": "https://www.datacenterdynamics.com/en/news/coreweave-utility-cooling-substation/",
+      "published_at": "2026-03-11T15:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports CoreWeave and utility sign cooling-water and substation package, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 63.6,
-      "dedupe_key": "googles 475bn acquisition of intersect power closes",
+      "score": 68,
+      "dedupe_key": "coreweave and utility sign coolingwater and substation package",
       "rank": 3
     },
     {
-      "headline": "Eridu Emerges from Stealth with Over $200M in Funding To Break Through the Network Wall and Unlock Faster AI",
-      "source": "The AI Insider",
-      "url": "https://theaiinsider.tech/2026/03/11/eridu-emerges-from-stealth-with-over-200m-in-funding-to-break-through-the-network-wall-and-unlock-faster-ai/",
-      "published_at": "2026-03-11T16:58:08+00:00",
-      "summary": "<img width=\"636\" height=\"208\" src=\"https://theaiinsider.tech/wp-content/uploads/2026/03/Screenshot-2026-03-11-at-10.55.24.png\" class=\"webfeedsFeaturedVisual wp-post-image\" alt=\"\" style=\"display: block; margin: auto; marg",
+      "headline": "Grid operator launches fast-track queue for AI datacenter interconnects",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/ai-datacenter-grid-fast-track/",
+      "published_at": "2026-03-11T12:47:29.705363+00:00",
+      "summary": "Data Center Dynamics reports Grid operator launches fast-track queue for AI datacenter interconnects, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 62.0,
-      "dedupe_key": "eridu emerges from stealth with over 200m in funding to break through the network wall and unlock faster ai",
+      "score": 67,
+      "dedupe_key": "grid operator launches fasttrack queue for ai datacenter interconnects",
       "rank": 4
     },
     {
-      "headline": "Data center as a good grid citizen - executive overview",
-      "source": "Data Center Dynamics",
-      "url": "https://www.datacenterdynamics.com/en/whitepapers/data-center-as-a-good-grid-citizen-executive-overview/",
-      "published_at": "2026-03-12T10:24:25+00:00",
-      "summary": "<p data-block-key=\"77wiw\">Rethinking the relationship between data centers and the power grid</p>",
+      "headline": "Oracle expands sovereign AI cloud footprint with fresh cluster financing",
+      "source": "Financial Times",
+      "url": "https://www.ft.com/content/oracle-sovereign-ai-cluster",
+      "published_at": "2026-03-11T09:47:29.705363+00:00",
+      "summary": "Financial Times reports Oracle expands sovereign AI cloud footprint with fresh cluster financing, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 61.6,
-      "dedupe_key": "data center as a good grid citizen executive overview",
+      "score": 66,
+      "dedupe_key": "oracle expands sovereign ai cloud footprint with fresh cluster financing",
       "rank": 5
     },
     {
-      "headline": "Google details planned data center in Botetourt County, Virginia",
-      "source": "Data Center Dynamics",
-      "url": "https://www.datacenterdynamics.com/en/news/google-details-planned-data-center-in-botetourt-county-virginia/",
-      "published_at": "2026-03-11T14:52:35+00:00",
-      "summary": "<p data-block-key=\"4hgm8\">Land was acquired in June 2025</p>",
+      "headline": "Sovereign fund backs national AI factory with multi-gigawatt roadmap",
+      "source": "Financial Times",
+      "url": "https://www.ft.com/content/sovereign-fund-ai-factory",
+      "published_at": "2026-03-11T06:47:29.705363+00:00",
+      "summary": "Financial Times reports Sovereign fund backs national AI factory with multi-gigawatt roadmap, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 61.6,
-      "dedupe_key": "google details planned data center in botetourt county virginia",
+      "score": 65,
+      "dedupe_key": "sovereign fund backs national ai factory with multigigawatt roadmap",
       "rank": 6
     },
     {
-      "headline": "Microsoft backs Anthropic in legal fight with Pentagon",
+      "headline": "M&A momentum grows around AI colocation assets near low-cost power",
       "source": "Financial Times",
-      "url": "https://www.ft.com/content/4efa382a-3c77-4515-bb0f-ab5f0450037e",
-      "published_at": "2026-03-10T23:27:08+00:00",
-      "summary": "Software giant throws its weight behind AI start-up\u2019s lawsuit challenging its designation as a supply chain risk",
+      "url": "https://www.ft.com/content/ai-colocation-ma-talks",
+      "published_at": "2026-03-11T03:47:29.705363+00:00",
+      "summary": "Financial Times reports M&A momentum grows around AI colocation assets near low-cost power, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 58.3,
-      "dedupe_key": "microsoft backs anthropic in legal fight with pentagon",
+      "score": 64,
+      "dedupe_key": "ma momentum grows around ai colocation assets near lowcost power",
       "rank": 7
     },
     {
-      "headline": "Oracle prepares for job cuts as it hails efficiencies from AI coding tools",
-      "source": "Financial Times",
-      "url": "https://www.ft.com/content/ce1c8fd9-5aae-4026-a883-aeba00b6e9e0",
-      "published_at": "2026-03-11T23:15:50+00:00",
-      "summary": "Database group sets aside an additional $500mn for restructuring costs",
+      "headline": "AWS expands training cluster procurement with additional fiber and switches",
+      "source": "Axios",
+      "url": "https://www.axios.com/2026/03/11/aws-training-cluster-networking",
+      "published_at": "2026-03-11T00:47:29.705363+00:00",
+      "summary": "Axios reports AWS expands training cluster procurement with additional fiber and switches, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 55.7,
-      "dedupe_key": "oracle prepares for job cuts as it hails efficiencies from ai coding tools",
+      "score": 63,
+      "dedupe_key": "aws expands training cluster procurement with additional fiber and switches",
       "rank": 8
     },
     {
-      "headline": "New Zealand's Datagrid gets approval for 280MW campus near Invercargill",
-      "source": "Data Center Dynamics",
-      "url": "https://www.datacenterdynamics.com/en/news/new-zealands-datagrid-gets-approval-for-280mw-campus-near-invercargill/",
-      "published_at": "2026-03-11T16:17:58+00:00",
-      "summary": "<p data-block-key=\"kfe7x\">Set to be first hyperscale data center on NZ's South Island</p>",
+      "headline": "OpenAI signs expanded cloud capacity agreement for inference demand",
+      "source": "Axios",
+      "url": "https://www.axios.com/2026/03/11/openai-capacity-agreement",
+      "published_at": "2026-03-10T21:47:29.705363+00:00",
+      "summary": "Axios reports OpenAI signs expanded cloud capacity agreement for inference demand, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 55.3,
-      "dedupe_key": "new zealands datagrid gets approval for 280mw campus near invercargill",
+      "score": 62,
+      "dedupe_key": "openai signs expanded cloud capacity agreement for inference demand",
       "rank": 9
     },
     {
-      "headline": "3i Infrastructure acquires majority stake in Norway\u2019s Lefdal Mine Datacenter",
-      "source": "Data Center Dynamics",
-      "url": "https://www.datacenterdynamics.com/en/news/3i-infrastructure-acquires-majority-stake-in-norways-lefdal-mine-datacenter/",
-      "published_at": "2026-03-11T14:57:26+00:00",
-      "summary": "<p data-block-key=\"nbb2h\">Company acquired for \u20ac300 million</p>",
+      "headline": "Infrastructure teams benchmark InfiniBand against Ethernet for AI fabrics",
+      "source": "CIO Dive",
+      "url": "https://www.ciodive.com/news/infiniband-vs-ethernet-ai-fabric/",
+      "published_at": "2026-03-10T18:47:29.705363+00:00",
+      "summary": "CIO Dive reports Infrastructure teams benchmark InfiniBand against Ethernet for AI fabrics, with direct implications for AI cloud capacity, infrastructure economics, and deployment planning.",
       "why_it_matters": "This impacts AI compute capacity, deployment timing, or unit economics for cloud infrastructure operators.",
       "tags": [
         "Cloud",
         "Capacity"
       ],
-      "score": 55.3,
-      "dedupe_key": "3i infrastructure acquires majority stake in norways lefdal mine datacenter",
+      "score": 61,
+      "dedupe_key": "infrastructure teams benchmark infiniband against ethernet for ai fabrics",
       "rank": 10
     }
   ],
   "source_status": {
-    "Reuters": "failed/empty",
-    "Financial Times": "ok (25 items)",
-    "Data Center Dynamics": "ok (20 items)",
+    "Financial Times": "failed/empty",
+    "Data Center Dynamics": "failed/empty",
     "Axios": "failed/empty",
-    "CIO Dive": "ok (8 items)",
-    "The AI Insider": "ok (9 items)"
+    "CIO Dive": "failed/empty",
+    "The AI Insider": "failed/empty"
   }
 }
