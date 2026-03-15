@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-11T21:47:29.705363+00:00",
-  "display_date": "March 11, 2026",
+  "as_of_utc": "2026-03-15T00:40:06.128188+00:00",
+  "methodology": "Daily web search pull via Google News RSS queries focused on neocloud/nvidia/coreweave/nebius/lamda keywords; dedupe by headline; rank by keyword hit score.",
   "items": [
     {
       "headline": "Paraguay hydropower corridor attracts AI campus proposals from neocloud operators",
@@ -152,12 +152,5 @@
       "dedupe_key": "infrastructure teams benchmark infiniband against ethernet for ai fabrics",
       "rank": 10
     }
-  ],
-  "source_status": {
-    "Financial Times": "failed/empty",
-    "Data Center Dynamics": "failed/empty",
-    "Axios": "failed/empty",
-    "CIO Dive": "failed/empty",
-    "The AI Insider": "failed/empty"
-  }
+  ]
 }

@@ -32,13 +32,14 @@ Open `http://localhost:4173`.
 
 ## Source focus
 
-Digest ingestion prefers these sources via RSS where available:
-- Reuters
-- Financial Times
-- Data Center Dynamics
-- Axios
-- CIO Dive
-- The AI Insider
+Digest ingestion now performs a **daily web pull** via Google News RSS search queries, prioritizing these keywords:
+- neocloud
+- nvidia
+- coreweave
+- nebius
+- lamda (and lambda spelling variant)
+
+The generator deduplicates stories by headline and ranks them by keyword relevance so the bottom feed stays fresh even when a specific publisher feed is unavailable.
 
 ## GitHub Pages deploy
 
