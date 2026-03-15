@@ -153,9 +153,15 @@ def build_digest() -> Dict:
         top_items = load_previous_items()[:10]
 
     now = dt.datetime.now(dt.timezone.utc)
+    display_date = now.strftime('%Y-%m-%d')
+    methodology = 'Daily web search pull via Google News RSS queries focused on neocloud/nvidia/coreweave/nebius/lamda keywords; dedupe by headline; rank by keyword hit score.'
     return {
+        # Backward-compatible fields to reduce merge/consumer conflicts
+        'generated_at': now.isoformat(),
+        'display_date': display_date,
+        # New metadata fields
         'as_of_utc': now.isoformat(),
-        'methodology': 'Daily web search pull via Google News RSS queries focused on neocloud/nvidia/coreweave/nebius/lamda keywords; dedupe by headline; rank by keyword hit score.',
+        'methodology': methodology,
         'items': top_items,
     }
 

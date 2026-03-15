@@ -7,6 +7,7 @@ This project keeps the GPU infrastructure dashboard and appends AI news + neoclo
 - Bottom news list now shows **Top 10** headlines only (one line each, hyperlinked).
 - Digest generation now keeps only **actual article-style links** from supported sources and rejects malformed/double URLs.
 - If source fetch fails, the generator preserves the previous working digest instead of publishing broken fallback links.
+- Digest JSON now includes both legacy (`generated_at`, `display_date`) and new (`as_of_utc`, `methodology`) metadata fields for compatibility across branches and easier conflict resolution.
 - Added bottom neocloud table with:
   - name
   - link
