@@ -25,11 +25,12 @@ Workflow: `.github/workflows/daily-digest.yml`
 ## Local run
 
 ```bash
-python3 scripts/fetch_digest.py
 python3 -m http.server 4173 --bind 0.0.0.0
 ```
 
 Open `http://localhost:4173`.
+
+Digest refresh runs in GitHub Actions via `.github/workflows/daily-digest.yml` (scheduled and manual dispatch).
 
 ## Source focus
 
